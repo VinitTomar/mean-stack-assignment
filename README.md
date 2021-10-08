@@ -24,6 +24,8 @@ DB_DATABASE_NAME=test
 
 After completeting above steps, now we need to run frontend application.
 
+## Frontend steps
+
 Please make sure if port `4200` if free to use.
 
 1. run cmd `cd frontend`
