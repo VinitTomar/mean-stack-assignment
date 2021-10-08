@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+
+  get showLogoutBtn(): boolean {
+    return this._userService.loggedIn;
+  }
+
+  constructor(
+    private _userService: UserService,
+    private _router: Router
+  ) { }
+
+  logout(): void {
+    this._userService.logout();
+    this._router.navigateByUrl('/login');
+  }
 }

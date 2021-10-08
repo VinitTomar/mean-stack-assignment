@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { AddProductModel, ProductModel } from './product.model';
+import { AddProductModel, DeleteResponse, ProductModel } from './product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -51,12 +51,12 @@ export class ProductService {
       );
   }
 
-  deleteProduct(product: ProductModel) {
-    return this._httpClient.delete('product' + product.id)
+  deleteProduct(product: ProductModel): Observable<DeleteResponse> {
+    return this._httpClient.delete<DeleteResponse>('product/' + product.id)
       .pipe(
         tap(res => {
           this._productList = this._productList
-            .filter(prod => product.id !== product.id);
+            .filter(prod => prod.id !== product.id);
         })
       );
   }

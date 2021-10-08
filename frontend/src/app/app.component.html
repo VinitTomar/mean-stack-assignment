@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
   Product inventory
+  <button (click)="logout()" *ngIf="showLogoutBtn" mat-flat-button style="margin-left:auto">Logout</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

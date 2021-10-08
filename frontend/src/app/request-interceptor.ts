@@ -12,6 +12,10 @@ export class RequestInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+    req = req.clone({
+      url: 'http://localhost:3000/' + req.url
+    });
+
     if (this._userService.loggedIn) {
       req = req.clone({
         setHeaders: {

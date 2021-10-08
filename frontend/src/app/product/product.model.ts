@@ -7,3 +7,8 @@ export interface ProductModel {
 
 export type AddProductModel = Omit<ProductModel, 'id'>;
 
+export type DeleteResponse = {
+  affected: number;
+  raw: any[]
+};
+

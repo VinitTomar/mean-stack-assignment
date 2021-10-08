@@ -11,7 +11,7 @@ export class ProductService {
   ) { }
 
   addProduct(product: Product) {
-    return this._productRepository.create(product);
+    return this._productRepository.save(product);
   }
 
   findAllByUserId(userId: number) {

@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent implements OnInit, OnDestroy {
 
   addProductForm!: FormGroup;
   submissionInProgress = false;
+
+  subscription!: Subscription;
 
   get nameErr(): string {
     const errors = this.addProductForm.get('name')?.errors;
@@ -46,7 +51,9 @@ export class AddProductComponent implements OnInit {
   }
 
   constructor(
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _productService: ProductService,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +66,7 @@ export class AddProductComponent implements OnInit {
 
   }
 
-  addProduct() {
+  addProduct(): void {
     if (!this.addProductForm.valid) {
       this.addProductForm.markAllAsTouched();
       return;
@@ -67,7 +74,13 @@ export class AddProductComponent implements OnInit {
 
     this.submissionInProgress = true;
 
-    console.log({ addProd: this.addProductForm.value });
+    this.subscription = this._productService.addProduct(this.addProductForm.value).subscribe(res => {
+      this._router.navigateByUrl('/product');
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
 }

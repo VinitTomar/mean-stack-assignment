@@ -2,8 +2,10 @@
 
   <mat-card-header>
     <mat-card-title>Product detail</mat-card-title>
+    <button mat-flat-button color="warn" style="margin-left: auto;" (click)="delete()">
+      Delete
+    </button>
   </mat-card-header>
-
 
   <ng-container *ngIf="product">
     <p>
