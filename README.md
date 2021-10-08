@@ -33,3 +33,13 @@ Please make sure if port `4200` if free to use.
 3. run cmd `npm run start`.
 4. Now open `localhost:4200` in the browser.
 
+## Functional requirement
+- [x] Login page
+- [x] Logout
+- [x] Create new product
+- [x] List product
+- [x] View product detail
+- [x] Delete one or more product 
+
+
+
