@@ -6,8 +6,20 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   get loggedIn(): boolean {
-    return true;
+    return !!this.jwt;
+  }
+
+  get jwt(): string {
+    return localStorage.getItem('jwt') || '';
+  }
+
+  set jwt(token: string) {
+    localStorage.setItem('jwt', token);
   }
 
   constructor() { }
+
+  logout(): void {
+    localStorage.removeItem('jwt');
+  }
 }
