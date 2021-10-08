@@ -44,8 +44,8 @@ export class ProductService {
       .pipe(
         tap(addedProduct => {
           this._productList = [
+            ...this._productList,
             addedProduct,
-            ...this._productList
           ];
         })
       );

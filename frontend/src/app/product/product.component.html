@@ -6,9 +6,14 @@
     </a>
   </mat-card-header>
 
-  <mat-selection-list>
+  <button mat-raised-button *ngIf="products?.selectedOptions?.selected?.length" color="warn"
+    (click)="deleteMany(products.selectedOptions.selected)" [disabled]="deleteInprogress">
+    Delete
+  </button>
 
-    <mat-list-option *ngFor="let product of productService.products$ | async">
+  <mat-selection-list #products>
+
+    <mat-list-option *ngFor="let product of productService.products$ | async" [value]="product">
       <a href="{{'/product/' + product.id}}" routerLink="{{'/product/' + product.id}}">
         {{product.name}}
       </a>
