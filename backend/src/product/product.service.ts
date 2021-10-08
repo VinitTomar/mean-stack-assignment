@@ -15,7 +15,14 @@ export class ProductService {
   }
 
   findAllByUserId(userId: number) {
-    return this._productRepository.find({ user: userId });
+    return this._productRepository.find({
+      where: {
+        user: userId
+      },
+      order: {
+        createdAt: 'DESC'
+      }
+    });
   }
 
   removeProduct(productId: string, userId: number) {
