@@ -1,0 +1,27 @@
+<mat-card class="form-card">
+
+  <mat-card-header>
+    <mat-card-title>Product detail</mat-card-title>
+  </mat-card-header>
+
+
+  <ng-container *ngIf="product">
+    <p>
+      <label>Id: </label> <span>{{product.id}}</span>
+    </p>
+    <p>
+      <label>Name: </label> <span>{{product.name}}</span>
+    </p>
+    <p>
+      <label>Description: </label> <span>{{product.description}}</span>
+    </p>
+    <p>
+      <label>Price: </label> <span>{{product.price}}</span>
+    </p>
+  </ng-container>
+
+  <ng-container *ngIf="!product">
+    <p>Product detail not found.</p>
+  </ng-container>
+
+</mat-card>

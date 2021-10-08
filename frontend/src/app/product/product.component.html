@@ -1,1 +1,16 @@
-<p>product works!</p>
+<mat-card class="form-card">
+  <a href="/product/add" routerLink="/product/add" mat-raised-button color="primary" class="add-btn">
+    Add product
+  </a>
+  <mat-card-header>
+    <mat-card-title>Product list</mat-card-title>
+  </mat-card-header>
+
+  <mat-nav-list>
+    <a *ngFor="let product of productService.products$ | async" href="{{'/product/' + product.id}}"
+      routerLink="{{'/product/' + product.id}}">
+      {{product.name}}
+    </a>
+  </mat-nav-list>
+
+</mat-card>

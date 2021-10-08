@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   submit(form: NgForm): void {
     if (!form.valid) {
+      form.control.markAllAsTouched();
       return;
     }
 

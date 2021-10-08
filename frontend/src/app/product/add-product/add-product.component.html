@@ -1,0 +1,32 @@
+<mat-card class="form-card">
+
+  <mat-card-header>
+    <mat-card-title>Add product</mat-card-title>
+  </mat-card-header>
+
+  <form (ngSubmit)="addProduct()" [formGroup]="addProductForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input type="text" placeholder="product name" matInput formControlName="name" required>
+      <mat-error id="name-error">{{nameErr}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input type="number" placeholder="product price" matInput formControlName="price" required>
+      <mat-error id="price-error">{{priceErr}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <textarea placeholder="please describe your product" matInput formControlName="description"> </textarea>
+      <mat-error id="description-error">{{descriptionErr}}</mat-error>
+    </mat-form-field>
+
+    <button id="loginBtn" mat-raised-button color="primary" [disabled]="submissionInProgress" type="submit">
+      Add
+    </button>
+  </form>
+
+</mat-card>
