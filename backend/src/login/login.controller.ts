@@ -1,9 +1,9 @@
 import { Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { JwtPayload } from 'src/auth/jwt-payload';
-import { TokenService } from 'src/auth/token.service';
+import { JwtPayload } from '../auth/jwt-payload';
 import { Request } from 'express';
-import { User } from 'src/users/user.entity';
+import { User } from '../users/user.entity';
+import { TokenService } from '../auth/token.service';
 
 @Controller('login')
 export class LoginController {
