@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { MockType } from './product.service.spec';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductController } from './product.controller';
