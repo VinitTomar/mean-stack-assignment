@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Product } from './product.entity';
-import { DeleteResult, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProductService } from './product.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
-type MockType<T> = {
+export type MockType<T> = {
   // eslint-disable-next-line @typescript-eslint/ban-types
   [P in keyof T]?: jest.Mock<{}>;
 };
@@ -30,7 +30,6 @@ describe('ProductService', () => {
       createdAt: new Date()
     },
   ];
-
 
   const productRepositoryMockFactory :() => MockType<Repository<Product>> = jest.fn(() => ({
     save: jest.fn(entity => {
