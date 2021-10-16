@@ -41,5 +41,10 @@ Please make sure if port `4200` if free to use.
 - [x] View product detail
 - [x] Delete one or more product 
 
+## Backend unit test code coverage
 
+ - 54.49% Statements 97/178 
+ - 15% Branches 3/20 
+ - 76.92% Functions 20/26 
+ - 53.15% Lines 76/143
 
